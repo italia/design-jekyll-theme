@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
+  {%- include styles.html -%}
+  {%- include meta.html -%}
+  {%- if jekyll.environment == 'production' -%}
+  {%- include analytics/google-analytics.html -%}
+  {%- endif -%}
+</head>
+<body>
+  {%- include header/header.html -%}
+  {{ content }}
+  {%- include footer/footer.html -%}
+  {%- include cookiebar.html -%}
+  {%- include scripts.html -%}
+</body>
+</html>

@@ -1,0 +1,38 @@
+<div class="it-header-slim-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="it-header-slim-wrapper-content">
+          <a class="d-none d-lg-block navbar-brand" href="#">Ente appartenenza/Owner</a>
+          <div class="nav-mobile">
+            <nav>
+              <a class="it-opener d-lg-none" data-toggle="collapse" href="#menu1" role="button" aria-expanded="false" aria-controls="menu1">
+                <span>Ente appartenenza/Owner</span>
+                <svg class="icon">
+                  <use xlink:href="{{ site.baseurl }}/assets/bootstrap-italia/dist/svg/sprite.svg#it-expand"></use>
+                </svg>
+              </a>
+              <div class="link-list-wrapper collapse" id="menu1">
+                <ul class="link-list">
+                  <li><a href="#">Link 1</a></li>
+                  <li><a href="#">Link 2</a></li>
+                  <li class="d-lg-none"><a href="#">Ente appartenenza/Owner</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+          <div class="header-slim-right-zone">
+            <!-- Language Switch -->
+            {% include header/header-lang-switch.html %}
+            <!-- Account options -->
+            {% comment %}
+            <div class="it-access-top-wrapper">
+              <button class="btn btn-primary btn-sm" href="#" type="button">Accedi</button>
+            </div>
+            {% endcomment %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
