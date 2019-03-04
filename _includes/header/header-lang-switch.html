@@ -15,9 +15,9 @@
           <ul class="link-list">
             {% for linked_page in pages_in_other_langs %}
             {% if linked_page.lang == "it" %}
-            <li><a class="list-item" href="{{ linked_page.url }}" title="{{ site.data.t.italian-version[page.lang] }}" {% if linked_page.lang == page.lang %}class="active"{% endif %}><span>{{ linked_page.lang | upcase }}</span></a></li>
+            <li><a class="list-item" href="{{ site.baseurl }}{{ linked_page.url }}" title="{{ site.data.t.italian-version[page.lang] }}" {% if linked_page.lang == page.lang %}class="active"{% endif %}><span>{{ linked_page.lang | upcase }}</span></a></li>
             {% else %}
-            <li><a class="list-item" href="{{ linked_page.url }}" title="{{ site.data.t.english-version[page.lang] }}" {% if linked_page.lang == page.lang %}class="active"{% endif %}><span>{{ linked_page.lang | upcase }}</span></a></li>
+            <li><a class="list-item" href="{{ site.baseurl }}{{ linked_page.url }}" title="{{ site.data.t.english-version[page.lang] }}" {% if linked_page.lang == page.lang %}class="active"{% endif %}><span>{{ linked_page.lang | upcase }}</span></a></li>
             {% endif %}
             {% endfor %}
           </ul>

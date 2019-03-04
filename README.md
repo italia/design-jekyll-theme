@@ -10,8 +10,12 @@ If you already have `bundler` installed, you can install jekyll and budler gems 
 
 `bundle install`
 
-Then, build the site and make it available on a local server with:
+You can build the site and make it available on a local server with:
 
-`bundle exec jekyll serve`
+`bundle exec jekyll serve --config _config.yml,_config_dev.yml`
 
-The website will be available on http://localhost:4000.
+### Notes
+
+You can run the server just with `bundle exec jekyll serve`: the webiste will be available on http://localhost:4000/design-jeyll-theme. This is the default settings to allow usage with GitHub pages.
+
+The aforementioned addition of `_config_dev.yml` is needed to run the server on http://localhost:4000 without any subpath.
