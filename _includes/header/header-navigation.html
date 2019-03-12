@@ -1,0 +1,87 @@
+{% comment %}
+Le pagine che vengono incluse in questo menù sono un sottoinsieme di
+tutte le pagine del sito che:
+- hanno la stessa lingua della pagina corrente
+- hanno l'attributo "order" valorizzato
+{% endcomment %}
+
+{% assign current_lang_menu_pages = site.pages | where: "lang", page.lang | where_exp: "page", "page.order != nil" | sort: "order" %}
+<div class="it-nav-wrapper">
+  <div class="it-header-center-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="it-header-center-content-wrapper">
+            <div class="it-brand-wrapper">
+              <a href="#">
+                <img class="icon" src="{{ site.baseurl }}{{ site.data.t.icon }}" alt="{{ site.name }} logo">
+                <div class="it-brand-text">
+                  <h2 class="no_toc">{{ site.data.t.name[page.lang] }}</h2>
+                  <h3 class="no_toc d-none d-md-block">{{ site.data.t.description[page.lang] }}</h3>
+                </div>
+              </a>
+            </div>
+            <div class="it-right-zone">
+              <div class="it-socials d-none d-md-flex">
+                <span>Seguici su</span>
+                <ul>
+                  {% for social-link in site.data.t.social-links[page.lang] %}
+                  <li class="list-inline-item">
+                    <a href="{{ site.baseurl }}{{ social-link[1].url }}" title="{{ social-link[1].name }}" target="_blank">
+                      <svg class="icon">
+                        <use xlink:href="{{ site.baseurl }}/assets/bootstrap-italia/dist/svg/sprite.svg#it-{{ social-link[1].name }}"></use>
+                      </svg>
+                      <span class="sr-only">{{ social-link[1].name }}</span>
+                    </a>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+              {% comment %}
+              <!-- Search button -->
+              <div class="it-search-wrapper">
+                <span class="d-none d-md-block">Cerca</span>
+                <a class="search-link rounded-icon" href="#" aria-label="Cerca">
+                  <svg class="icon">
+                    <use xlink:href="{{ site.baseurl }}/assets/bootstrap-italia/dist/svg/sprite.svg#it-search"></use>
+                  </svg>
+                </a>
+              </div>
+              {% endcomment %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="it-header-navbar-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="navbar navbar-expand-lg has-megamenu">
+            <button class="custom-navbar-toggler" type="button" aria-controls="nav10" aria-expanded="false" aria-label="Toggle navigation" data-target="#nav10">
+              <svg class="icon">
+                <use xlink:href="{{ site.baseurl }}/assets/bootstrap-italia/dist/svg/sprite.svg#it-burger"></use>
+              </svg>
+            </button>
+            <div class="navbar-collapsable" id="nav10">
+              <div class="overlay"></div>
+              <div class="close-div sr-only">
+                <button class="btn close-menu" type="button"><span class="it-close"></span>close</button>
+              </div>
+              <div class="menu-wrapper">
+                <ul class="navbar-nav">
+                  {% for menu_page in current_lang_menu_pages %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ site.baseurl }}{{menu_page.permalink}}"><span>{{menu_page.title}}</span></a>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
