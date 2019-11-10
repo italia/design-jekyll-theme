@@ -15,7 +15,7 @@
             </div>
             <h5 class="card-title big-heading">{{ post.title }}</h5>
             <h6 class="card-subtitle">in {% for category in post.categories %}{{ category }} {% endfor %}</h6>
-            <p class="card-text">{{ post.excerpt }}</p>
+            <div class="card-text">{{ post.excerpt }}</div>
             <span class="card-signature">{{ post.author }}</span>
             <a class="read-more" href="{{ site.baseurl }}{{ post.url }}">
               <span class="text">Leggi di più</span>
