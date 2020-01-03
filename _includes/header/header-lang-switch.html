@@ -17,7 +17,7 @@
             {% if linked_page.lang == "it" %}
             <li><a class="list-item {% if linked_page.lang == page.lang %}active{% endif %}" href="{{ site.baseurl }}{{ linked_page.url }}" title="{{ site.data.t.italian-version[page.lang] }}"><span>{{ linked_page.lang | upcase }}</span></a></li>
             {% else %}
-            <li><a class="list-item {% if linked_page.lang == page.lang %}active{% endif %}" href="{{ site.baseurl }}{{ linked_page.url }}" title="{{ site.data.t.english-version[page.lang] }}"<span>{{ linked_page.lang | upcase }}</span></a></li>
+            <li><a class="list-item {% if linked_page.lang == page.lang %}active{% endif %}" href="{{ site.baseurl }}{{ linked_page.url }}" title="{{ site.data.t.english-version[page.lang] }}"><span>{{ linked_page.lang | upcase }}</span></a></li>
             {% endif %}
             {% endfor %}
           </ul>
