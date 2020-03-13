@@ -16,7 +16,7 @@ with:
 
 However, if you want to install the dependencies locally you can run:
 
-`bunde install --path vendor/bundle`
+`bundle install --path vendor/bundle`
 
 You can build the site and make it available on a local server with:
 
