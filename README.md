@@ -38,4 +38,4 @@ http://localhost:4000 without any subpath.
 
 # License
 This repository is licensed with a BSD-3-Clause license. Please check the
-[LICENSE.md](LICENSE.md) file to know more details about this.
+[LICENSE](LICENSE) file to know more details about this.
