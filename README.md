@@ -20,7 +20,12 @@ However, if you want to install the dependencies locally you can run:
 
 You can build the site and make it available on a local server with:
 
-`bundle exec jekyll serve --config _config.yml,_config_dev.yml`
+`bundle exec jekyll serve --config {_config.yml, _config_dev.yml}`
+
+picking one of the two config files where:
+
+*  _config.yml is the production file
+*  _config_dev.yml is the development file.
 
 ### Notes
 
