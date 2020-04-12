@@ -27,7 +27,7 @@ tutte le pagine del sito che:
                 <ul>
                   {% for social-link in site.data.t.social-links[page.lang] %}
                   <li class="list-inline-item">
-                    <a href="{{ site.baseurl }}{{ social-link[1].url }}" title="{{ social-link[1].name }}" target="_blank">
+                    <a href="{{ social-link[1].url }}" title="{{ social-link[1].name }}" target="_blank">
                       <svg class="icon">
                         <use xlink:href="{{ site.baseurl }}/assets/bootstrap-italia/dist/svg/sprite.svg#it-{{ social-link[1].name }}"></use>
                       </svg>
