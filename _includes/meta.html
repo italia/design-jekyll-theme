@@ -1,42 +1,81 @@
+{%- capture meta_title -%}
+{{ site.data.t.name[page.lang] }}{% if page.title and page.title != 'Homepage' %} | {{ page.title }}{% endif %}
+{%- endcapture -%}
+
+{%- capture meta_description -%}
+{%- if page.excerpt -%}
+{{ page.excerpt | strip_html }}
+{%- elsif page.description -%}
+{{ page.description | strip_html }}
+{%- else -%}
+{{ site.data.t.description[page.lang] }}
+{%- endif -%}
+{%- endcapture -%}
+
+{%- capture meta_image_social -%}
+{%- if page.image -%}
+{{ site.url | append: page.image }}
+{%- else -%}
+{{ site.url | append: site.data.t.social-card }}
+{%- endif -%}
+{%- endcapture -%}
+
 <meta charset="utf-8">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="{% if page.excerpt %}{{ page.excerpt| strip_html }}{% else %}{{ site.data.t.description[page.lang] }}{% endif %}">
 <meta name="author" content="{{ site.data.t.author[page.lang] }}">
-<meta name="generator" content="Jekyll v3.8.5">
+<meta name="generator" content="Jekyll {{site.version}}">
 
-<!-- Favicons -->
-<link rel="apple-touch-icon" href="{{ site.baseurl }}/assets/images/favicons/apple-touch-icon.png">
-<link rel="icon" href="{{ site.baseurl }}/assets/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="{{ site.baseurl }}/assets/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-<link rel="mask-icon" href="{{ site.baseurl }}/assets/images/favicons/safari-pinned-tab.svg" color="#0066CC">
-<link rel="icon" href="{{ site.baseurl }}/assets/images/favicons/favicon.ico">
-<meta name="msapplication-config" content="{{ site.baseurl }}/assets/images/favicons/browserconfig.xml">
+{% comment %} Title {% endcomment %}
+<title>{{ meta_title }}</title>
+
+{% comment %} Icons {% endcomment %}
+<link rel="apple-touch-icon" sizes="57x57" href="{{ site.url | append: '/assets/images/favicons/apple-icon-57x57.png' }}">
+<link rel="apple-touch-icon" sizes="60x60" href="{{ site.url | append: '/assets/images/favicons/apple-icon-60x60.png' }}">
+<link rel="apple-touch-icon" sizes="72x72" href="{{ site.url | append: '/assets/images/favicons/apple-icon-72x72.png' }}">
+<link rel="apple-touch-icon" sizes="76x76" href="{{ site.url | append: '/assets/images/favicons/apple-icon-76x76.png' }}">
+<link rel="apple-touch-icon" sizes="114x114" href="{{ site.url | append: '/assets/images/favicons/apple-icon-114x114.png' }}">
+<link rel="apple-touch-icon" sizes="120x120" href="{{ site.url | append: '/assets/images/favicons/apple-icon-120x120.png' }}">
+<link rel="apple-touch-icon" sizes="144x144" href="{{ site.url | append: '/assets/images/favicons/apple-icon-144x144.png' }}">
+<link rel="apple-touch-icon" sizes="152x152" href="{{ site.url | append: '/assets/images/favicons/apple-icon-152x152.png' }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ site.url | append: '/assets/images/favicons/apple-icon-180x180.png' }}">
+<link rel="icon" type="image/png" sizes="192x192"  href="{{ site.url | append: '/assets/images/favicons/android-icon-192x192.png' }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ site.url | append: '/assets/images/favicons/favicon-32x32.png' }}">
+<link rel="icon" type="image/png" sizes="96x96" href="{{ site.url | append: '/assets/images/favicons/favicon-96x96.png' }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ site.url | append: '/assets/images/favicons/favicon-16x16.png' }}">
+<link rel="icon" href="{{ site.url | append: '/assets/images/favicons/favicon.ico' }}">
+<meta name="msapplication-config" content="{{ site.url | append: '/assets/images/favicons/browserconfig.xml' }}">
+<meta name="msapplication-TileColor" content="#0066CC">
+<meta name="msapplication-TileImage" content="{{ site.url | append: '/assets/images/favicons/ms-icon-144x144.png' }}">
 <meta name="theme-color" content="#0066CC">
 
-<!-- Twitter -->
+{% comment %} Twitter {% endcomment %}
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@https://twitter.com/teamdigitaleIT">
-<meta name="twitter:creator" content="Team per la Trasformazione Digitale">
-<meta name="twitter:title" content="{{ page.title }}">
-<meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt| strip_html }}{% else %}{{ site.data.t.description[page.lang] }}{% endif %}">
-<meta name="twitter:image" content="{{ site.baseurl }}{{ site.social-card }}">
+<meta name="twitter:title" content="{{ meta_title }}">
+<meta name="twitter:description" content="{{ meta_description }}">
+<meta name="twitter:image" content="{{ meta_image_social }}">
+<meta name="twitter:image:alt" content="Immagine per il sito del {{ site.name }}">
 
-<!-- Facebook -->
-<meta property="og:url" content="/">
-<meta property="og:title" content="{{ page.title }}">
-<meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt| strip_html }}{% else %}{{ site.data.t.description[page.lang] }}{% endif %}">
+{% comment %} OpenGraph {% endcomment %}
+<meta property="og:url" content="{{ site.url | append: page.url }}">
+<meta property="og:title" content="{{ meta_title }}">
+<meta property="og:description" content="{{ meta_description }}">
 <meta property="og:type" content="website">
-<meta property="og:image" content="{{ site.baseurl | replace: 'https://', 'http://' }}{{ site.social-card }}">
-<meta property="og:image:secure_url" content="{{ site.baseurl }}{{ site.social-card }}">
+<meta property="og:image" content="{{ meta_image_social | replace: 'https://', 'http://' }}">
+<meta property="og:image:secure_url" content="{{ meta_image_social }}">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 
-{% if site.noindex %}
-<!-- Robots -->
-<meta name="robots" content="noindex, nofollow">
-{% endif %}
+{% comment %} Web App Manifest {% endcomment %}
+<link rel="manifest" href="{{ site.url | append: '/assets/images/favicons/manifest.json' }}">
+
+{% comment %} XML Feed {% endcomment %}
+<link rel="alternate" type="application/rss+xml" title="{{ meta_title }}" href="{{ site.url | append: '/feed.xml' }}" />
+
+{% comment %} Indexing {% endcomment %}
+{% if site.noindex %}<meta name="robots" content="noindex, nofollow">{% endif %}
 
 

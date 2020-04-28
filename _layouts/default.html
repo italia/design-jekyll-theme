@@ -1,9 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ page.lang }}">
 <head>
-  <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
-  {%- include styles.html -%}
-  {%- include meta.html -%}
+  {% include meta.html %}
+  {% include styles.html %}
   {%- if jekyll.environment == 'production' -%}
   {%- include analytics/google-analytics.html -%}
   {%- endif -%}
