@@ -35,7 +35,7 @@ baseurl: "/design-jekyll-theme"
 permalink: /:title/
 
 # The release of Jekyll Now that you're using
-version: v4.0.0
+version: v4.2.2
 
 # Set the Sass partials directory, as we're using @imports
 sass:
